@@ -12,6 +12,7 @@ app.use(express.json());
 
 //routes
 app.use('/users', require('./routes/user.route'));
+app.use('/tickets', require('./routes/ticket.route'));
 app.use('/private', require('./routes/private'));
 
 

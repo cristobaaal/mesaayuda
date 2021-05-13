@@ -8,9 +8,10 @@ import PrivateScreen from './component/screens/PrivateScreen';
 import LoginScreen from './component/screens/login/LoginScreen';
 import RegisterScreen from './component/screens/register/RegisterScreen';
 //porceso de evaluacion de vistas admin
-import adminHome from './component/screens/adminpage/home';
-//porceso de evaluacion de vistas admin
+import adminHome from './component/screens/adminpage/adminhome';
+//porceso de evaluacion de vistas usuarios
 import userHome from './component/screens/userpage/home'
+
 
 const App = () => {
   return (
