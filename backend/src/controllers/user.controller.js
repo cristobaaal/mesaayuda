@@ -2,6 +2,11 @@ userCtrl = {};
 
 const User = require('../models/user.model');
 
+userCtrl.getUsers = async (req, res) =>{
+    const users = await User.find();
+    res.json(users)
+} 
+
 userCtrl.register = async (req, res) =>{
     const {nombre, 
         apellidos, 

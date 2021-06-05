@@ -1,47 +1,48 @@
-import { useState } from 'react';
-import axios from 'axios';
-
-const Ticket = () => {
-
-  const [titulo, setTitulo] = useState("");
-  const [descripcion, setDescripcion] = useState("");
-  const [tipo, setTipo] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [error, setError] = useState("");
-
-  //   useEffect(()=> {
-
-  // });
+import {useState, useEffect} from 'react';
+import {getTickets} from '../../../service/ticketService';
+import {ListTickets} from './ListTickets';
 
 
-  const formHandler = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post('http://localhost:4000/tickets', {
-        titulo,
-        descripcion,
-        tipo,
-        categoria
-      });
-      
-    }
-    catch (error) {
-      setError(error.response.data.error);
-    }
-  };
+export const Tickets = () => {
+
+const [tickets, setTickets] = useState([]);
+
+async function loadTickets(){
+  const response = await getTickets()
+  
+  if(response.status === 200){
+    setTickets(response.data)
+    console.log(response.data);
+  }
+  }
+
+ useEffect( () =>{
+ loadTickets()
+ },[]);
+
+//  const handleSubmit = (data) =>{
+
+//  }
 
 
-  return (
-    <form onSubmit={formHandler}>
-      {error && <span>{error}</span>}
+    return (
+        <>
+    
+      <ListTickets tickets={tickets}/>
+    
+    
+        {/* {
+            ticket.map(tickets => {
+                return {tickets};
+        })
+        } */}
+        
+          {/* <form onSubmit={formHandler}>
       <div className="card text-center">
         <div className="card-header">
-          <h4><b>Ingrese Nuevo Ticket...</b></h4>
+          <h4><b>gestion tickets</b></h4>
         </div>
         <div className="card-body">
-          {/*<h5 className="card-title">Special title treatment</h5>
-    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>*/}
-
           
                 <div className="mb-3">
                   <label htmlFor="exampleFormControlInput1" className="form-label">Titulo</label>
@@ -49,13 +50,6 @@ const Ticket = () => {
                     value={titulo} onChange={(e) => setTitulo(e.target.value)} />
 
                 </div>
-              
-              {/* <td>
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre"/>
-</div>
-   </td>*/}
 
                 <div className="mb-3">
                   <label htmlFor="exampleFormControlInput1" className="form-label"></label>
@@ -90,8 +84,8 @@ const Ticket = () => {
           <button type="submit" className="btn btn-primary float-end">Ingresar Ticket</button>
         </div>
       </div>
-    </form>
-  )
+    </form>   */}
+            
+        </>
+    )
 }
-
-export default Ticket;

@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import "./LoginScreen.css";
@@ -9,12 +9,21 @@ const[rut, setRut]= useState("");
 const[contraseña, setPassword]= useState("");
 const[error, setError] = useState("");
 
-useEffect(()=> {
-    /*if(localStorage.getItem("authToken")){
-        history.push("/");
-    }*/
+// useEffect(()=> {
 
-}, [history]);
+//     if(localStorage.getItem("authToken") && data.rol==='admin'){
+//          history.push("/homeadmin");
+//     if (localStorage.getItem("authToken") && data.rol==='user'){
+//          history.push("/homeuser");
+//     }     
+//     else{
+//         return(
+//         history.push("/login")
+//         );
+//     }
+//     }
+
+// }, [history]);
 
 
 const loginHandler = async (e)=>{
@@ -29,7 +38,6 @@ const config ={
 try {
   const {data} = await axios.post('http://localhost:4000/users/login', 
   {rut, contraseña}, config);
-  console.log(data);
   localStorage.setItem("authToken", data.token);  
   //pruebas localStorage
   localStorage.setItem("id", data.id);
@@ -37,7 +45,17 @@ try {
   localStorage.setItem("apellidos", data.apellidos);
   localStorage.setItem("rut", data.rut);
   localStorage.setItem("email", data.email);
-  data.rol === 'admin' ? history.push('adminhome') : history.push('userhome');
+  if(data.rol === 'admin'){
+      history.push("/homeadmin");
+  }
+  else if (data.rol==='Usuario'){
+      history.push("/homeuser");
+  }
+  else{
+      history.push("/");
+  }
+  
+ // data.rol === 'admin' ? history.push('/adminhome') : history.push('/userhome');
  
   //fin pruebas
   //history.push("/");

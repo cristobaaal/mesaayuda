@@ -3,15 +3,26 @@ import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const Navuser = ()=> {
+const Navuser = ({history})=> {
+
+  const logoutHandler = () =>{
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("id");
+        localStorage.removeItem("nombre");
+        localStorage.removeItem("apellidos");
+        localStorage.removeItem("rut");
+        localStorage.removeItem("email");
+    
+        history.push("/");
+    }
 
 return(
 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
     <Link className="navbar-brand" to="/userhome" >navbar</Link>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
-    </button>
+    </button> */}
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -25,8 +36,9 @@ return(
         </li>
         <li className="nav-item">
         </li>
-      </ul>
+      </ul> 
     </div>
+    <button onClick={logoutHandler}>Logout</button>
   </div>
 </nav>
 )

@@ -2,7 +2,18 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 
-const Navadmin = () => {
+const Navadmin = ({history}) => {
+
+  const logoutHandler = () =>{
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("id");
+    localStorage.removeItem("nombre");
+    localStorage.removeItem("apellidos");
+    localStorage.removeItem("rut");
+    localStorage.removeItem("email");
+
+    history.push("/");
+}
 
 return(
 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -23,10 +34,12 @@ return(
           <Link className="nav-link" to="/userhome">Pricing</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link disabled" to="/userhome" tabindex="-1" aria-disabled="true">Disabled</Link>
+          <Link className="nav-link disabled" to="/userhome" tabIndex="-1" aria-disabled="true">Disabled</Link>
         </li>
       </ul>
     </div>
+    <button onClick={logoutHandler}>Logout</button>
+
   </div>
 </nav>
 );

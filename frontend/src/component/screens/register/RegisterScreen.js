@@ -18,7 +18,7 @@ const[error, setError] = useState("");
 useEffect(()=> {
   if(localStorage.getItem("authToken")){
     const {data} = axios.post('http://localhost:4000/users/registro') 
-    data.rol === 'admin' ? history.push('adminhome') : history.push('userhome')
+    data.rol === 'admin' ? history.push('/adminhome') : history.push('/userhome')
     //history.push("/");
   }
 }, [history]);
@@ -123,8 +123,8 @@ return(
                             <div className="form-group">
                                 <select name="rol" className="form-control" onChange={(e)=> setTypeUser(e.target.value)}>
                                     <option>-- Seleccione el tipo de usuario --</option>
-                                    <option>Usuario</option>
-                                    <option>Administrador</option>
+                                    <option>usuario</option>
+                                    <option>administrador</option>
                                 </select>
                             </div>
 
@@ -139,7 +139,7 @@ return(
                             </button>
 
                             <span className="register-screen__subtext">
-                               Already have an account? <Link to="/login">Login</Link>
+                               Already have an account? <Link to="/">Login</Link>
                            </span>
                         </form>
                     </div>

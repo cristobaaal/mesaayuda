@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const router = Router();
-const {getPrivateData} = require('../controllers/private')
 const {protect} = require('../middlewares/auth');
+const {getPrivateData} = require('../controllers/private')
 
 router.route("/").get(protect, getPrivateData);
 
