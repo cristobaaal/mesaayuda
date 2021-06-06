@@ -86,30 +86,34 @@ return(
 
                             <div className="form-group">
                                 <input type="text" className="form-control" 
+                                required 
                                 placeholder="Ingrese apellidos" value={apellidos} 
                                 onChange={(e)=> setSurname(e.target.value)}/>
                             </div>
 
                             <div className="form-group">
                                 <input type="text" className="form-control" 
+                                required 
                                 placeholder="Ingrese rut" value={rut} 
                                 onChange={(e)=> setRut(e.target.value)}/>
                             </div>
 
                             <div className="form-group">
                                 <input type="password" className="form-control" 
+                                required 
                                 placeholder="Ingrese contraseña" value={contraseña} 
                                 onChange={(e)=> setPassword(e.target.value)}/>
                             </div>
 
                             <div className="form-group">
                                 <input type="password" className="form-control" 
+                                required 
                                 placeholder="repita contraseña" value={reContraseña} 
                                 onChange={(e)=> setRePassword(e.target.value)}/>
                             </div>
 
                             <div className="form-group">
-                               <select name="departamento" className="form-control" onChange={(e)=> setDepartment(e.target.value)}>
+                               <select required   name="departamento" className="form-control" onChange={(e)=> setDepartment(e.target.value)}>
                                     <option>-- Seleccione Departamento --</option>
                                     <option>Recursos Humanos</option>
                                     <option>Finanza</option>
@@ -121,7 +125,7 @@ return(
                             </div>
 
                             <div className="form-group">
-                                <select name="rol" className="form-control" onChange={(e)=> setTypeUser(e.target.value)}>
+                                <select required name="rol" className="form-control" onChange={(e)=> setTypeUser(e.target.value)}>
                                     <option>-- Seleccione el tipo de usuario --</option>
                                     <option>usuario</option>
                                     <option>administrador</option>
@@ -129,7 +133,7 @@ return(
                             </div>
 
                             <div className="form-group">
-                                <input type="email" className="form-control" 
+                                <input required  type="email" className="form-control" 
                                 placeholder="Ingrese email" value={email} 
                                 onChange={(e)=> setEmail(e.target.value)}/>
                             </div>
