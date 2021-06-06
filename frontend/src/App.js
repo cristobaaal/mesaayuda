@@ -15,7 +15,7 @@ import RegisterScreen from './component/screens/register/RegisterScreen';
 // import userHome from './component/screens/userpage/home'
 
 import PrivateScreenUser from './component/screens/PrivateScreenUser';
-
+import "bootswatch/dist/lux/bootstrap.min.css"
 
 const App = () => {
   return (
