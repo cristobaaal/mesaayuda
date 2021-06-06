@@ -21,7 +21,7 @@ const App = () => {
   return (
     
      <Router>
-<div className="app">
+<div className="app container p-4">
   <Switch>
     <PrivateRouteAdmin exact path="/homeadmin" component={PrivateScreenAdmin} />
     <PrivateRouteUser exact path="/homeuser" component={PrivateScreenUser} />

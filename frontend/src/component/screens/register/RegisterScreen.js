@@ -14,7 +14,7 @@ const[departamento, setDepartment]= useState("");
 const[rol, setTypeUser]= useState("");
 const[email, setEmail]= useState("");
 const[error, setError] = useState("");
-
+/*
 useEffect(()=> {
   if(localStorage.getItem("authToken")){
     const {data} = axios.post('http://localhost:4000/users/registro') 
@@ -22,7 +22,7 @@ useEffect(()=> {
     //history.push("/");
   }
 }, [history]);
-
+*/
 const formHandler= async (e)=>{
 e.preventDefault();
 
