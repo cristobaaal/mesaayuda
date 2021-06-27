@@ -1,7 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+faSignOutAlt
+} from "@fortawesome/free-solid-svg-icons";
 
 const Navuser = ({history})=> {
 
@@ -13,7 +16,7 @@ const Navuser = ({history})=> {
         localStorage.removeItem("rut");
         localStorage.removeItem("email");
     
-        history.push("/");
+      window.location.href= "/";
     }
 
 return(
@@ -26,10 +29,10 @@ return(
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/userhome">Home</Link>
+          <Link className="nav-link active" aria-current="page" to="/homeuser">Nuevo ticket</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/userhome">Features</Link>
+          <Link className="nav-link"  to="/mistickets">Mis tickets</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/userhome">Pricing</Link>
@@ -38,7 +41,8 @@ return(
         </li>
       </ul> 
     </div>
-    <button onClick={logoutHandler}>Logout</button>
+    <div onClick={logoutHandler} className="btn btn-dark">  
+    Logout <FontAwesomeIcon icon={faSignOutAlt} className="text-white ml-2" /></div>
   </div>
 </nav>
 )

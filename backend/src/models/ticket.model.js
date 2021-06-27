@@ -19,21 +19,27 @@ categoria:{
     type: String,
     required: [true, "Por favor seleccione una categoría."]
 },
-fechaApertura:{
-    type: Date,
-    default: Date.now,
-    required: true
-},
-fechaGestion:{
-    type: Date,
-},
-fechaCierre:{
-    type: Date,
-},
-estado:{
+autor:{
     type: String,
-    //required: [true, "Por favor seleccione un estado."]
+    required:[true, "Por favor ingrese autor."]
+},
+// fechaApertura:{
+//     type: Date,
+//     default: Date.now,
+//     required: true
+// },
+// fechaGestion:{
+//     type: Date,
+// },
+// fechaCierre:{
+//     type: Date,
+// },
+estado: {type: String,
+        required: [true, "Por favor seleccione un estado."],
+        default: 'Iniciado'
 }
+}, {
+    timestamps: true
 
 });
 

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Navuser from '../nav/navuser'
-import Ticket from './userpage/ticket/ticket';
+import Ticket from './userpage/ticket/CrearTicket';
 
 const PrivateScreenUser = ({history}) =>{
     // const [error, setError] = useState("");

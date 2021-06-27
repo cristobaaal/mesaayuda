@@ -35,8 +35,10 @@ email:{
     type: String,
     required: [true, "Por favor ingrese su email."]
 },
-resetPasswordToken: String,
-resetPasswordExpire: Date
+
+tickets:[{type: Schema.Types.ObjectId, ref:'Ticket'}]
+// resetPasswordToken: String,
+// resetPasswordExpire: Date
 });
 
 userSchema.pre("save", async function(next){

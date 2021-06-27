@@ -15,7 +15,8 @@ import RegisterScreen from './component/screens/register/RegisterScreen';
 // import userHome from './component/screens/userpage/home'
 
 import PrivateScreenUser from './component/screens/PrivateScreenUser';
-import "bootswatch/dist/lux/bootstrap.min.css"
+import MisTickets  from './component/screens/userpage/ticket/MisTickets';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
@@ -23,10 +24,15 @@ const App = () => {
      <Router>
 <div className="app container p-4">
   <Switch>
-    <PrivateRouteAdmin exact path="/homeadmin" component={PrivateScreenAdmin} />
-    <PrivateRouteUser exact path="/homeuser" component={PrivateScreenUser} />
     <Route exact path="/" component={LoginScreen} />
     <Route exact path="/register" component={RegisterScreen} />
+    {/* rutas del administrador */}
+    <PrivateRouteAdmin exact path="/homeadmin" component={PrivateScreenAdmin} />
+
+    {/* rutas del usuario */}
+    <PrivateRouteUser exact path="/homeuser" component={PrivateScreenUser} />
+    <Route exact path="/mistickets" component={MisTickets} />
+    
     {/* rutas del administrador*/}
     {/* <Route exact path="/adminhome" component={adminHome}/> */}
     {/*rutas del usuario*/}

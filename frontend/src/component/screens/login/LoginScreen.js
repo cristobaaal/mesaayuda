@@ -49,7 +49,7 @@ const LoginScreen = ({ history }) => {
       localStorage.setItem("email", data.email);
       if (data.rol === "administrador") {
         history.push("/homeadmin");
-      } else if (data.rol === "Usuario") {
+      } else if (data.rol === "usuario") {
         history.push("/homeuser");
       } else {
         history.push("/");

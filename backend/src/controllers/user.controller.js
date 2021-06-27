@@ -3,9 +3,33 @@ userCtrl = {};
 const User = require('../models/user.model');
 
 userCtrl.getUsers = async (req, res) =>{
-    const users = await User.find();
+     const users = await User.find()
     res.json(users)
 } 
+
+userCtrl.getUser = async (req, res) =>{
+     await User.findById(req.params.id).populate('tickets').exec((err, user) =>{  //const users =
+        res.json(user)
+    });
+}
+
+// userCtrl.asignTicket = async (req, res) =>{
+//     const {id} = req.params;
+//     const {tickets} = req.body;
+//     await User.findByIdAndUpdate(id, {
+//         $push: {tickets}
+//     }); 
+//     res.send("ticket agregado");
+// }
+
+userCtrl.removeTicketFromArray = async (req, res) =>{
+    const {id} = req.params;
+    const {ide} = req.body;
+    await User.findByIdAndUpdate(id, {
+        $pull: {tickets: ide}
+    }); 
+    res.send("ticket eliminado");
+}
 
 userCtrl.register = async (req, res) =>{
     const {nombre, 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./RegisterScreen.css";
@@ -60,9 +60,9 @@ useEffect(()=> {
       localStorage.setItem("apellidos", data.apellidos);
       localStorage.setItem("rut", data.rut);
       localStorage.setItem("email", data.email);
-      data.rol === "admin"
-        ? history.push("adminhome")
-        : history.push("userhome");
+      data.rol === "administrador"
+        ? history.push("homeadmin")
+        : history.push("homeuser");
 
       //fin pruebas
       //history.push("/login");
@@ -147,13 +147,14 @@ useEffect(()=> {
                       className="form-control"
                       onChange={(e) => setDepartment(e.target.value)}
                     >
-                      <option>-- Seleccione Departamento --</option>
-                      <option>Recursos Humanos</option>
-                      <option>Finanza</option>
-                      <option>Operaciones</option>
-                      <option>Logistica</option>
-                      <option>Sanidad</option>
-                      <option>Proyectos e Infraestructura</option>
+                      <option>-- Selecciona un departamento</option>
+                      <option >Informatica</option>
+                      <option >Recursos Humanos</option>
+                      <option >Finanzas</option>
+                      <option >Operaciones</option>
+                      <option >Logistica</option>
+                      <option >Sanidad</option>
+                      <option >Proyectos e Infraestructura</option>
                     </select>
                   </div>
 
